@@ -19,6 +19,11 @@ router.post("/", async (req, res, next): Promise<any>  => {
       
       const order = {} as OrderPayloadType;
      order.turn = generateOrderId(orderBody.id)
+     if (order.turn==="1") {
+      order.priority = 1
+     }else{
+      order.priority = 0
+     }
      if (orderBody.phoneNumber) {
       order.package = await findPackage(orderBody.phoneNumber)
      }
@@ -41,11 +46,12 @@ router.post("/", async (req, res, next): Promise<any>  => {
 
     id: string;
     phoneNumber?: string;
+    
   
   }
 
   export type OrderPayloadType = {
-
+    priority:number
     turn: string;
     package?: string;
   

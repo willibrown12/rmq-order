@@ -26,10 +26,12 @@ amqp.connect('amqp://localhost', function(error0, connection) {
     
 
     channel.assertQueue(queue, {
-      durable: true
+      durable: true,
+      arguments: { 'x-max-priority': 1 }
     });
     channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)), {
-      persistent: true
+      persistent: true,
+      priority: paramToSend.priority || 0 
     });
     console.log(" [x] Sent '%s'", msg);
   });
