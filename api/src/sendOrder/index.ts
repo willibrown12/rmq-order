@@ -16,12 +16,18 @@ router.post("/", async (req, res, next): Promise<any>  => {
       console.log(req.body);
       const orderBody: OrderType = extractOrder(req.body);
      
-      
       const order = {} as OrderPayloadType;
      order.turn = generateOrderId(orderBody.id)
-     if (order.turn==="1") {
+
+ 
+     
+     if (orderBody.id==="3") {
+
+      
       order.priority = 1
      }else{
+   
+      
       order.priority = 0
      }
      if (orderBody.phoneNumber) {

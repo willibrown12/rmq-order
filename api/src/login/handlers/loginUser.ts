@@ -18,10 +18,11 @@ export async function loginUser(user: loginType): Promise<loginRoleType> {
     const result = rows as Array<any>;
     if (result.length === 0) return { authentication: false, };
 
+
     return { 
         authentication: true, 
         full_name: result[0].full_name, 
-        idUser: result[0].id 
+        idUser: result[0].idusers 
     };;
 }
 

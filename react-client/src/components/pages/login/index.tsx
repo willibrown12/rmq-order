@@ -6,13 +6,11 @@ import TextField from '@mui/material/TextField';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useNavigate } from 'react-router-dom';
 import { loginApi } from './service';
 import { useState } from 'react';
-import  backgroundImage from "/images/backroundImage.jpg";
+
 
 import { CircularProgress, InputLabel } from '@mui/material';
 import { useAuth, useUserContext } from '../../../context';
@@ -36,8 +34,13 @@ export default function LoginPage() {
   const handleSubmit = async () => {
     try {
       setIsLoading(true);
+      console.log({ email: EmailInput, password: PasswordInput });
       const result = await loginApi({ email: EmailInput, password: PasswordInput });
+     
+      
       if (result.token) {
+       
+        
         console.log(result.idUser);
         
         setId(result.idUser)

@@ -2,12 +2,12 @@ import { Navigate, RouterProvider, createBrowserRouter } from "react-router-dom"
 
 
 
-import { Vacations } from "../components/pages/vacations";
 
 import LoginPage from "../components/pages/login";
 import { ProtectedRoute } from "./protectedRoutes";
 import { LoggedInAlready } from "../components/container/loggedinAlready";
 import RootPage from "../components/pages/root/root";
+import Home from "../components/pages/getOrder";
 
 
 
@@ -33,9 +33,9 @@ export function RoutesArray(){
       element: <ProtectedRoute />,
       children: [
         {
-            path: "Vacations",
-            label: "Vacations",
-            element: <Vacations />
+            path: "Home",
+            label: "Home",
+            element: <Home />
            
         },
       ],

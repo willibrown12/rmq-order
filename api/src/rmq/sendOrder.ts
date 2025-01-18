@@ -29,6 +29,8 @@ amqp.connect('amqp://localhost', function(error0, connection) {
       durable: true,
       arguments: { 'x-max-priority': 1 }
     });
+   
+    
     channel.sendToQueue(queue, Buffer.from(JSON.stringify(msg)), {
       persistent: true,
       priority: paramToSend.priority || 0 
