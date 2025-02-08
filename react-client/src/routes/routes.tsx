@@ -8,6 +8,8 @@ import { ProtectedRoute } from "./protectedRoutes";
 import { LoggedInAlready } from "../components/container/loggedinAlready";
 import RootPage from "../components/pages/root/root";
 import Home from "../components/pages/getOrder";
+import Logout from "../components/pages/logout";
+import Customer from "../components/pages/customer/home";
 
 
 
@@ -23,6 +25,13 @@ export function RoutesArray(){
         element:  <Navigate to="/login" replace />,
        
     },
+    {
+      path: "/customer",
+      label: "loginAuto",
+      element:  <Customer/>,
+     
+  },
+
 
   ];
 
@@ -38,6 +47,12 @@ export function RoutesArray(){
             element: <Home />
            
         },
+        {
+          path: "Home/logout",
+          label: "logout",
+          element: <Logout />
+         
+      },
       ],
     },
   ];

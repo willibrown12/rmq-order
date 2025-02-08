@@ -9,7 +9,7 @@ export type loginType ={
 
 
 
-const BASE_URL = `http://localhost:3001`
+const BASE_URL = `http://34.82.202.15/:3001`
 
 export async function loginApi(user: loginType): Promise<{ message: string, token: string , idUser:number}> {
    
@@ -20,3 +20,4 @@ export async function loginApi(user: loginType): Promise<{ message: string, toke
         console.log(result);
     return result.data
 }
+

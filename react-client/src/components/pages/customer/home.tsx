@@ -1,4 +1,4 @@
-import { Button, Grid2, IconButton } from "@mui/material";
+import { Button, Container, CssBaseline, Grid } from "@mui/material";
 import AccessibilityIcon from '@mui/icons-material/Accessibility';
 import Inventory2Icon from '@mui/icons-material/Inventory2';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
@@ -8,8 +8,11 @@ import { useState } from "react";
 import { sendOrderApi } from "./service";
 import Numpad from "./numpad";
 
-export default function Home() {
 
+export default function Customer() {
+
+
+    
   const [postBox, setPostBox] = useState<string>("1");
   const [clientTurn, setClientTurn] = useState<string>("");
 
@@ -25,12 +28,20 @@ export default function Home() {
 
   return (
     postBox === "1" ?
-      <Grid2 container rowSpacing={2} columnSpacing={1} sx={{ display: 'flex', justifyContent: "center" }}>
-        <Grid2 size={10}>
+    <Container  
+    sx={{ 
+      display: 'flex', 
+      justifyContent: 'center', 
+      alignItems: 'center', 
+      minHeight: '100vh' 
+    }}
+  >
+      <Grid container rowSpacing={2} columnSpacing={1} sx={{ display: 'flex', justifyContent: "center",}}>
+        <Grid   item xs={10} sx={{ display: 'flex', justifyContent: "center" }}>
           <h1> Pick a Service That Fits Your Needs </h1>
-        </Grid2>
+        </Grid>
 
-        <Grid2 size={6} >
+        <Grid   item xs={6} >
           <Button variant="contained" color="error" fullWidth sx={{ height: '200px' }} onClick={async () => {
             setPostBox("3")
             const result = await sendOrderApi({ id: "1" })
@@ -40,12 +51,12 @@ export default function Home() {
 
           }}>
             customer service
-            <IconButton color="inherit">
-              <ManageAccountsIcon />
-            </IconButton>
+            
+              <ManageAccountsIcon sx={{marginLeft:"10px"}}/>
+            
           </Button>
-        </Grid2>
-        <Grid2 size={6}>
+        </Grid>
+        <Grid    item xs={6}>
           <Button variant="contained" color="success" fullWidth sx={{ height: '200px' }} onClick={async () => {
             setPostBox("3")
             const result = await sendOrderApi({ id: "1" })
@@ -55,22 +66,22 @@ export default function Home() {
 
           }}>
             buy
-            <IconButton color="inherit">
-              <AddShoppingCartIcon />
-            </IconButton>
+            
+              <AddShoppingCartIcon sx={{marginLeft:"10px"}}/>
+            
           </Button>
-        </Grid2>
-        <Grid2 size={6}>
+        </Grid>
+        <Grid   item xs={6}>
           <Button variant="contained" color="primary" fullWidth sx={{ height: '200px' }} onClick={async () => {
             setPostBox("2")
           }} >
             delivery
-            <IconButton color="inherit">
-              <Inventory2Icon />
-            </IconButton>
+            
+              <Inventory2Icon sx={{marginLeft:"10px"}} />
+            
           </Button>
-        </Grid2>
-        <Grid2 size={6} >
+        </Grid>
+        <Grid   item xs={6} >
           <Button variant="contained" color="warning" fullWidth sx={{ height: '200px' }} onClick={async () => {
             setPostBox("3")
             const result = await sendOrderApi({ id: "3" })
@@ -80,19 +91,29 @@ export default function Home() {
 
           }}>
             Accessibility
-            <IconButton color="inherit">
-              <AccessibilityIcon />
-            </IconButton>
+        
+              <AccessibilityIcon sx={{marginLeft:"10px"}} />
+         
           </Button>
-        </Grid2>
-
-      </Grid2> : postBox === "3" ?
-        <Grid2 container rowSpacing={2} columnSpacing={1} sx={{ display: 'flex', justifyContent: "center" }}>
-          <Grid2 size={10}>
+        </Grid>
+  <CssBaseline/>
+      </Grid> 
+      </Container>
+      : postBox === "3" ?
+      <Container  
+      sx={{ 
+        display: 'flex', 
+        justifyContent: 'center', 
+        alignItems: 'center', 
+        minHeight: '100vh' 
+      }}
+    >
+        <Grid container rowSpacing={2} columnSpacing={1} >
+          <Grid    item xs={12} sx={{ display: 'flex', justifyContent: "center" }}>
             <h1> Thank you your turn is {clientTurn} </h1>
-          </Grid2>
+          </Grid>
 
-        </Grid2> : <Numpad doSomething2={() => setPostBox("1")} doSomething={async (data: any): Promise<void> => {
+        </Grid> </Container>: <Numpad doSomething2={() => setPostBox("1")} doSomething={async (data: any): Promise<void> => {
           try {
             console.log("aaaa");
             
@@ -106,4 +127,5 @@ export default function Home() {
 
 
   );
+  
 }

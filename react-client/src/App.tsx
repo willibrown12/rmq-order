@@ -15,7 +15,7 @@ function App() {
 
     return (
         <>
-            <ContextWrapper>
+            <ContextWrapper >
             <RoutesArray/>
             </ContextWrapper>
         </>

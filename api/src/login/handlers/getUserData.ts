@@ -6,8 +6,8 @@ import { log } from "console";
 
 export async function getUserData(id: number) {
     const connection = await getConnection();
-    const query = `SELECT CONCAT(first_name, ' ', last_name) AS full_name, role
-FROM vacations.users
+    const query = `SELECT full_name
+FROM rabbitOrder.users
 WHERE id = ?`
 
 

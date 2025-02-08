@@ -6,7 +6,7 @@ import { getConnection } from "../../database/connection"
 
 
 
-type loginRoleType = { authentication: boolean, role?: string, full_name?: string, idUser?: number }
+type loginRoleType = { authentication: boolean, role?: string, full_name?: string, id?: number }
 
 export async function loginUser(user: loginType): Promise<loginRoleType> {
 
@@ -22,7 +22,7 @@ export async function loginUser(user: loginType): Promise<loginRoleType> {
     return { 
         authentication: true, 
         full_name: result[0].full_name, 
-        idUser: result[0].idusers 
+        id: result[0].id
     };;
 }
 

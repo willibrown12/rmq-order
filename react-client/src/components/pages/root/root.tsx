@@ -19,7 +19,7 @@ function RootPage() {
 
 
   const { token } = useAuth(); 
-  const { fullName,id,setFullName, } = useUserContext();
+  const {id,setFullName, } = useUserContext();
 
   useEffect(() => {
     let isSetState = true

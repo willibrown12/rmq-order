@@ -29,11 +29,11 @@ router.post("/", async (req: Request, res: Response, next): Promise<any> => {
             console.log(process.env.SECRET as string);
             console.log( result);
             
-            const token = jwt.sign({ role: result.role, idUser: result.idUser }, process.env.SECRET as string, {
+            const token = jwt.sign({ role: result.role, idUser: result.id }, process.env.SECRET as string, {
                 expiresIn: '1h',
             });
            
-            return res.status(200).json({ message: "user logged In successfully!", token, idUser: result.idUser })
+            return res.status(200).json({ message: "user logged In successfully!", token, idUser: result.id })
         }
     } catch (error: any) {
         console.log("error");

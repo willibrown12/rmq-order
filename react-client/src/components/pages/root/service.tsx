@@ -14,7 +14,7 @@ export type userTypeApi = {
 
 export async function SendToApiID(token: string, id:number) {
    
-    const url = `http://localhost:3001/login/${id}`;
+    const url = `http://34.82.202.15:3001/login/${id}`;
   
     const headers = token ? { Authorization: token } : {};
 
